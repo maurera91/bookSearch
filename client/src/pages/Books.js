@@ -20,7 +20,7 @@ class Books extends Component {
   }
 
   loadBooks = () => {
-    API.getBooks()
+    API.getSavedBooks()
       .then(res =>
         this.setState({ books: res.data, title: "", author: "", synopsis: "" })
       )
@@ -73,12 +73,6 @@ class Books extends Component {
                 onChange={this.handleInputChange}
                 name="author"
                 placeholder="Author (required)"
-              />
-              <TextArea
-                value={this.state.synopsis}
-                onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
               />
               <FormBtn
                 disabled={!(this.state.author && this.state.title)}
